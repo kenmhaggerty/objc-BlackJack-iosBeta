@@ -35,7 +35,12 @@
 
 - (void)resetForNewGame {
     
-    //
+    [self.cardsInHand removeAllObjects];
+    [self setHandscore:0];
+    [self setAceInHand:NO];
+    [self setBlackjack:NO];
+    [self setBusted:NO];
+    [self setStayed:NO];
 }
 
 - (void)acceptCard:(FISCard *)card {
