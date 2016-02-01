@@ -12,6 +12,7 @@
 @interface FISCardDeck : NSObject
 @property (nonatomic, strong) NSMutableArray *remainingCards;
 @property (nonatomic, strong) NSMutableArray *dealtCards;
+- (instancetype)initWithNumberOfDecks:(NSUInteger)numberOfDecks;
 - (FISCard *)drawNextCard;
 - (void)resetDeck;
 - (void)gatherDealtCards;

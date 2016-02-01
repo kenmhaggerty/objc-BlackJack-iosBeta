@@ -11,11 +11,20 @@
 @implementation FISCardDeck
 
 - (instancetype)init {
+    
+    self = [self initWithNumberOfDecks:1];
+    return self;
+}
+
+- (instancetype)initWithNumberOfDecks:(NSUInteger)numberOfDecks {
+    
     self = [super init];
     if (self) {
         _remainingCards = [NSMutableArray array];
         _dealtCards = [NSMutableArray array];
-        [self generateDeck];
+        for (int i = 0; i < numberOfDecks; i++) {
+            [self generateDeck];
+        }
     }
     return self;
 }

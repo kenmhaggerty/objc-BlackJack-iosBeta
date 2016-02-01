@@ -13,13 +13,18 @@
 @interface FISBlackjackGame : NSObject
 @property (nonatomic, strong) FISCardDeck *deck;
 @property (nonatomic, strong) FISBlackjackPlayer *house;
-@property (nonatomic, strong) FISBlackjackPlayer *player;
+@property (nonatomic, strong) NSArray <FISBlackjackPlayer *> *players;
+- (instancetype)initWithPlayers:(NSArray <FISBlackjackPlayer *> *)players numberOfDecks:(NSUInteger)numberOfDecks;
 - (void)playBlackjack;
 - (void)dealNewRound;
-- (void)dealCardToPlayer;
-- (void)dealCardToHouse;
-- (void)processPlayerTurn;
-- (void)processHouseTurn;
-- (BOOL)houseWins;
-- (void)incrementWinsAndLossesForHouseWins:(BOOL)houseWins;
+//- (void)dealCardToPlayer;
+//- (void)dealCardToHouse;
+- (void)dealCardToPlayer:(FISBlackjackPlayer *)player;
+//- (void)processPlayerTurn;
+//- (void)processHouseTurn;
+- (void)processTurnForPlayer:(FISBlackjackPlayer *)player;
+//- (BOOL)houseWins;
+- (NSArray <FISBlackjackPlayer *> *)winningPlayers;
+//- (void)incrementWinsAndLossesForHouseWins:(BOOL)houseWins;
+- (void)incrementWinsAndLossesForWinningPlayers:(NSArray <FISBlackjackPlayer *> *)winningPlayers;
 @end
