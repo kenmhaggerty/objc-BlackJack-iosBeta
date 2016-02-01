@@ -10,9 +10,26 @@
 
 @implementation FISBlackjackPlayer
 
+- (instancetype)init {
+    
+    self = [self initWithName:@""];
+    return self;
+}
+
 - (instancetype)initWithName:(NSString *)name {
     
     self = [super init];
+    if (self) {
+        _name = name;
+        _cardsInHand = [NSMutableArray array];
+        _aceInHand = NO;
+        _blackjack = NO;
+        _busted = NO;
+        _stayed = NO;
+        _handscore = 0;
+        _wins = 0;
+        _losses = 0;
+    }
     return self;
 }
 
