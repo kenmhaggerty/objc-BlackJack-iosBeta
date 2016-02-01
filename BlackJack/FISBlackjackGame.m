@@ -71,7 +71,13 @@
 
 - (void)incrementWinsAndLossesForHouseWins:(BOOL)houseWins {
     
-    //
+    NSLog(@"The house %@!", houseWins ? @"won" : @"lost");
+    self.house.wins += houseWins;
+    self.player.losses += houseWins;
+    self.house.losses += houseWins ? 0 : 1;
+    self.player.wins += houseWins ? 0 : 1;
+    NSLog(@"house = %lu wins, %lu losses", self.house.wins, self.house.losses);
+    NSLog(@"player = %lu wins, %lu losses", self.player.wins, self.player.losses);
 }
 
 @end
