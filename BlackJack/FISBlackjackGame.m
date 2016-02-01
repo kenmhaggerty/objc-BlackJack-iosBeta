@@ -23,7 +23,21 @@
 
 - (void)playBlackjack {
     
-    //
+    [self.deck resetDeck];
+    [self.house resetForNewGame];
+    [self.player resetForNewGame];
+    [self dealNewRound];
+    int i = 0;
+    while (i < 3) {
+        [self processPlayerTurn];
+        if (self.player.busted) break;
+        [self processHouseTurn];
+        if (self.house.busted) break;
+        i++;
+    }
+    [self incrementWinsAndLossesForHouseWins:[self houseWins]];
+    NSLog(@"%@", self.player.description);
+    NSLog(@"%@", self.house.description);
 }
 
 - (void)dealNewRound {
