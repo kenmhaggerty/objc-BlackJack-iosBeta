@@ -40,7 +40,21 @@
 
 - (void)acceptCard:(FISCard *)card {
     
-    //
+    [self.cardsInHand addObject:card];
+    self.handscore = 0;
+    for (FISCard *cardInHand in self.cardsInHand) {
+        self.handscore += MIN(cardInHand.cardValue, 10);
+    }
+    if ([card.rank isEqualToString:@"A"]) self.aceInHand = YES;
+    if (self.aceInHand && (self.handscore <= 11)) {
+        self.handscore += 10;
+    }
+    if (self.handscore > 21) {
+        self.busted = YES;
+    }
+    else if ((self.handscore == 21) && (self.cardsInHand.count == 2)) {
+        self.blackjack = YES;
+    }
 }
 
 - (BOOL)shouldHit {
