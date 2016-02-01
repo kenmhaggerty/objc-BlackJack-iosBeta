@@ -60,7 +60,13 @@
 
 - (BOOL)houseWins {
     
-    return NO;
+    if (self.house.busted) return NO;
+    
+    if (self.player.busted) return YES;
+    
+    if (self.house.blackjack && self.player.blackjack) return NO;
+    
+    return (self.house.handscore >= self.player.handscore);
 }
 
 - (void)incrementWinsAndLossesForHouseWins:(BOOL)houseWins {
