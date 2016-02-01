@@ -28,7 +28,10 @@
 
 - (void)dealNewRound {
     
-    //
+    for (int i = 0; i < 2; i++) {
+        [self dealCardToPlayer];
+        [self dealCardToHouse];
+    }
 }
 
 - (void)dealCardToPlayer {
