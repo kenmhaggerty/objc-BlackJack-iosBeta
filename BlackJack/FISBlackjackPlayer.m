@@ -59,7 +59,8 @@
 
 - (BOOL)shouldHit {
     
-    return NO;
+    self.stayed = (self.handscore > 16);
+    return !self.stayed;
 }
 
 @end
