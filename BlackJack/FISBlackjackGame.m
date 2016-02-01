@@ -46,12 +46,16 @@
 
 - (void)processPlayerTurn {
     
-    //
+    if (self.player.stayed || ![self.player shouldHit] || self.player.busted) return;
+    
+    [self dealCardToPlayer];
 }
 
 - (void)processHouseTurn {
     
-    //
+    if (self.house.stayed || ![self.house shouldHit] || self.house.busted) return;
+    
+    [self dealCardToHouse];
 }
 
 - (BOOL)houseWins {
