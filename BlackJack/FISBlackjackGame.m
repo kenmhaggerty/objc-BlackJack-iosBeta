@@ -33,12 +33,12 @@
 
 - (void)dealCardToPlayer {
     
-    //
+    [self.player acceptCard:[self.deck drawNextCard]];
 }
 
 - (void)dealCardToHouse {
     
-    //
+    [self.house acceptCard:[self.deck drawNextCard]];
 }
 
 - (void)processPlayerTurn {
