@@ -68,4 +68,13 @@
     return !self.stayed;
 }
 
+- (NSString *)description {
+    
+    NSMutableArray *cardsInHand = [NSMutableArray arrayWithCapacity:self.cardsInHand.count];
+    for (FISCard *card in self.cardsInHand) {
+        [cardsInHand addObject:card.description];
+    }
+    return [NSString stringWithFormat:@"%@:\nname: %@\ncards: %@\nhandscore: %lu\nace in hand: %d\nstayed: %d\nblackjack: %d\nbusted: %d\nwins: %lu\nlosses: %lu", NSStringFromClass([self class]), self.name, [cardsInHand componentsJoinedByString:@" "], (unsigned long)self.handscore, self.aceInHand, self.stayed, self.blackjack, self.busted, self.wins, self.losses];
+}
+
 @end
