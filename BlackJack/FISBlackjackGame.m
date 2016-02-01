@@ -10,6 +10,17 @@
 
 @implementation FISBlackjackGame
 
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        _deck = [[FISCardDeck alloc] init];
+        _house = [[FISBlackjackPlayer alloc] initWithName:@"House"];
+        _player = [[FISBlackjackPlayer alloc] initWithName:@"Player"];
+    }
+    return self;
+}
+
 - (void)playBlackjack {
     
     //
